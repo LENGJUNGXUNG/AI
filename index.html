@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Content Extractor</title>
+    <!-- Use Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="content-container w-full max-w-4xl">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">PDF Content Extractor</h1>
+        <p class="text-center text-gray-600 mb-8">Upload PDFs to extract and preview text, tables, and images, then generate a single PDF for preview or download.</p>
+
+        <div class="flex flex-col items-center space-y-4 mb-8">
+            <input type="file" id="pdfFile" accept=".pdf" multiple class="block w-full text-sm text-gray-900
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-full file:border-0
+                file:text-sm file:font-semibold
+                file:bg-blue-50 file:text-blue-700
+                hover:file:bg-blue-100 cursor-pointer"
+            />
+            <div class="flex w-full justify-center space-x-4">
+                <button id="extractButton" class="btn btn-blue w-1/2 disabled:opacity-50 disabled:cursor-not-allowed">
+                    Extract Content
+                </button>
+                <button id="downloadButton" class="btn btn-blue w-1/2 hidden disabled:opacity-50 disabled:cursor-not-allowed">
+                    Download PDF
+                </button>
+            </div>
+            <div id="loadingSpinner" class="hidden loading-spinner"></div>
+        </div>
+
+        <div id="message" class="text-center text-gray-700 text-lg mb-4"></div>
+
+        <hr class="my-8">
+
+        <!-- Preview Area -->
+        <div id="contentPreview" class="bg-gray-50 p-6 rounded-lg shadow-inner overflow-y-auto max-h-[70vh]">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center hidden" id="previewTitle">Extracted Content Preview</h2>
+            <div>
+                <p class="text-gray-500 text-center" id="initialMessage">Extracted content will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
